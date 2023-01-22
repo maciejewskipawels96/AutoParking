@@ -8,20 +8,38 @@ namespace AutoParking.Controllers
 {
     public class AutoParkingController : Controller
     {
+        AutoParkingManager AutoParkingManager = new AutoParkingManager();
         public IActionResult Index()
         {
-            var auto = new AutoParkingModel()
-            {
-                Marka = "Audi",
-                Model = "Q5",
-                pojemnoscsilnik = 2000,
-                Rokprod = 2015,
-                cena = 159000,
-                czysprzedany = false
-            };
-            var AutoParkingManager = new AutoParkingManager();
-            AutoParkingManager.AddAuto(auto);
+           
+
+           var list = AutoParkingManager.GetAutos();
+            return View(list);
+        }
+        [HttpGet]
+        public IActionResult Add()
+        {
+
             return View();
+        }
+        [HttpPost]
+        public IActionResult Add(AutoParkingModel automodel)
+        {
+            
+            AutoParkingManager.AddAuto(automodel);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Remove(int id)
+        {
+            var auto = AutoParkingManager.GetAuto(id);
+            return View(auto);
+        }
+        [HttpPost]
+        public IActionResult RemoveConfirm(int id) 
+        {
+            AutoParkingManager.RemoveAuto(id);
+            return RedirectToAction("Index");
         }
     }
 }

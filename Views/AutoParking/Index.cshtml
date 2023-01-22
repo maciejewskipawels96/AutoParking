@@ -1,7 +1,65 @@
-﻿
+﻿@model IEnumerable<AutoParking.Models.AutoParkingModel>
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista Aut";
 }
 
-<h1>Strona Główna</h1>
+<h1>Lista Aut</h1>
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Marka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pojemnoscsilnik)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rokprod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cena)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.czysprzedany)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marka)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pojemnoscsilnik)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rokprod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cena)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.czysprzedany)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Remove" asp-route-id="@item.Id">Remove</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,57 @@
+﻿@model AutoParking.Models.AutoParkingModel
+
+@{
+    ViewData["Title"] = "Remove";
+}
+
+<h1>Remove</h1>
+
+<h3>Jesteś pewny ze chcesz usunac??</h3>
+<div>
+    <h4>AutoParkingModel</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Marka)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Marka)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.pojemnoscsilnik)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.pojemnoscsilnik)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Rokprod)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Rokprod)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.cena)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.cena)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.czysprzedany)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.czysprzedany)
+        </dd>
+    </dl>
+    
+    <form asp-action="Remove">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Remove" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
