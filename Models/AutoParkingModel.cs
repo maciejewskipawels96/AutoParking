@@ -13,5 +13,6 @@ namespace AutoParking.Models
         public int pojemnoscsilnik { get; set; }
         public int Rokprod { get; set; }
         public int cena { get; set; }
+        public bool czysprzedany { get; set; }
     }
 }

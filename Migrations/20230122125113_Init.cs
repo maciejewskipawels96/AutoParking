@@ -2,7 +2,7 @@
 
 namespace AutoParking.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace AutoParking.Migrations
                     Model = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     pojemnoscsilnik = table.Column<int>(type: "int", nullable: false),
                     Rokprod = table.Column<int>(type: "int", nullable: false),
-                    cena = table.Column<int>(type: "int", nullable: false)
+                    cena = table.Column<int>(type: "int", nullable: false),
+                    czysprzedany = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

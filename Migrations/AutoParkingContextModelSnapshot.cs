@@ -37,6 +37,9 @@ namespace AutoParking.Migrations
                     b.Property<int>("cena")
                         .HasColumnType("int");
 
+                    b.Property<bool>("czysprzedany")
+                        .HasColumnType("bit");
+
                     b.Property<int>("pojemnoscsilnik")
                         .HasColumnType("int");
 

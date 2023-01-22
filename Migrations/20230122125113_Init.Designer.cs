@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AutoParking.Migrations
 {
     [DbContext(typeof(AutoParkingContext))]
-    [Migration("20230122105801_Initial")]
-    partial class Initial
+    [Migration("20230122125113_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,9 @@ namespace AutoParking.Migrations
 
                     b.Property<int>("cena")
                         .HasColumnType("int");
+
+                    b.Property<bool>("czysprzedany")
+                        .HasColumnType("bit");
 
                     b.Property<int>("pojemnoscsilnik")
                         .HasColumnType("int");
