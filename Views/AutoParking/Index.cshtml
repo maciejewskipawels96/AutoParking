@@ -7,9 +7,9 @@
 <h1>Lista Aut</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <button type="button" asp-action="Add" class="btn btn-dark">Dodaj nowy</button>
 </p>
-<table class="table">
+<table class="table table-striped" >
     <thead>
         <tr>
             <th>
@@ -55,9 +55,10 @@
                 @Html.DisplayFor(modelItem => item.czysprzedany)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Remove" asp-route-id="@item.Id">Remove</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Właściwości</a> |
+                <a asp-action="Remove" asp-route-id="@item.Id">Usuń</a>
+                
             </td>
         </tr>
 }

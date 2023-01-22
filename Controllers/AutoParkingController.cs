@@ -8,6 +8,7 @@ namespace AutoParking.Controllers
 {
     public class AutoParkingController : Controller
     {
+
         AutoParkingManager AutoParkingManager = new AutoParkingManager();
         public IActionResult Index()
         {
@@ -39,6 +40,30 @@ namespace AutoParking.Controllers
         public IActionResult RemoveConfirm(int id) 
         {
             AutoParkingManager.RemoveAuto(id);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+           var auto= AutoParkingManager.GetAuto(id);
+            return View(auto);
+        }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            var auto = AutoParkingManager.GetAuto(id);
+            return View(auto);
+        }
+        [HttpPost]
+        public IActionResult Edit(AutoParkingModel automodel)
+        {
+            AutoParkingManager.UpdateAuto(automodel);
+            return RedirectToAction("Index"); 
+        }
+        public IActionResult SprzedajAuto(int id)
+        {
+            var auto = AutoParkingManager.GetAuto(id);
+            AutoParkingManager.sprzedajAuto(auto);
             return RedirectToAction("Index");
         }
     }
